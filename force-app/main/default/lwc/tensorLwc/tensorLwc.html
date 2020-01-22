@@ -1,0 +1,14 @@
+<template>
+    <h2>Tensor Toxicity Demo</h2>
+    <lightning-input label="Enter Sentence here" value={sentence} onchange={handleSentenceChange}></lightning-input>
+    <lightning-button onclick={callTensor} label="Analyze"></lightning-button>
+    <template for:each={issues} for:item="issue">
+        <h2 key={issue}>{issue}</h2>
+    </template>
+    <template if:true={analyzing}>
+        <lightning-spinner size="medium"></lightning-spinner>
+    </template>
+    <template if:true={errorMessage}>
+        <span style="color:red">{errorMessage}</span>
+    </template>
+</template>
